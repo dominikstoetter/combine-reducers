@@ -1,4 +1,5 @@
 # combine-reducers
+(for redux)
 
 a standalone ES6 combine-reducers function. Unit tested. Babel pre-configured.
 
@@ -21,4 +22,22 @@ All files            |      100 |        0 |      100 |      100 |              
  combine-reducers.js |      100 |        0 |      100 |      100 |              1 |
 ---------------------|----------|----------|----------|----------|----------------|
 ✨  Done in 1.88s.
+```
+
+## Example
+
+```
+import combineReducers from 'combine-reducers'
+
+const reducerCustomers = (state = [], action) => action.type === 'SET_CUSTOMER' ? {
+	customer: action.customer
+} : state
+const reducerPonys = (state = [], action) => action.type === 'SET_PONY' ? {
+	pony: action.pony
+} : state
+
+const combinedReducers = combineReducers({
+			reducerCustomers,
+			reducerPonys
+		});
 ```
